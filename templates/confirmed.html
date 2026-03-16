@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="font-size: 1.3rem; font-weight: normal; margin-bottom: 1.5rem;">
+    Message sealed.
+</h2>
+
+<p style="color: #555; line-height: 1.7;">
+    Your message has been sealed and scheduled for delivery.
+    It cannot be accessed, modified, or deleted.
+</p>
+
+<a href="/compose" style="
+    display: inline-block;
+    margin-top: 2rem;
+    color: #1a1a1a;
+    font-size: 0.9rem;
+">
+    ← Write another message
+</a>
+
+{% endblock %}
