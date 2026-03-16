@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SealedMail</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Georgia', serif;
+            background: #f5f4f0;
+            color: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            padding: 2rem;
+            border-bottom: 1px solid #ddd;
+        }
+        header a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+        }
+        main {
+            flex: 1;
+            max-width: 600px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+        footer {
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #999;
+            border-top: 1px solid #ddd;
+        }
+        .flash {
+            background: #1a1a1a;
+            color: #f5f4f0;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/">SealedMail</a>
+    </header>
+    <main>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <div class="flash">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        Once sealed, a message cannot be retrieved, edited, or deleted.
+    </footer>
+</body>
+</html>
